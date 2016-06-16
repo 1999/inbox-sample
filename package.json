@@ -3,7 +3,18 @@
   "version": "1.0.0",
   "description": "Sample HTML like the one inbox.google.com is using",
   "private": true,
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "babel-loader": "6.2.4",
+    "babel-preset-es2015-node6": "0.2.0",
+    "extract-text-webpack-plugin": "1.0.1",
+    "node-sass": "3.7.0",
+    "raw-loader": "0.5.1",
+    "redux": "3.5.2",
+    "sass-loader": "3.2.0",
+    "webpack": "1.13.1"
   }
 }

@@ -6,10 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: __dirname,
-    entry: [
-        './node_modules/redux/dist/redux.js',
-        './index.js'
-    ],
+    entry: './index.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(`${__dirname}/dist`)

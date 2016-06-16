@@ -1,5 +1,18 @@
 # Sample HTML like inbox.google.com
 
+## Development
+```bash
+git clone git://github.com/1999/inbox-sample.git
+cd inbox-sample
+nvm use # if you use nvm for managing node versions
+npm install
+./node_modules/.bin/webpack-dev-server
+open http://localhost:8080/webpack-dev-server/
+```
+
+## UI Example
+`TODO`
+
 ## UI elements:
 
 * header with:

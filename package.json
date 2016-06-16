@@ -1,0 +1,9 @@
+{
+  "name": "inbox-sample",
+  "version": "1.0.0",
+  "description": "Sample HTML like the one inbox.google.com is using",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

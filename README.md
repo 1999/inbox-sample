@@ -12,7 +12,7 @@
 * content which is divided into days. Each day has so-called tasks which are either new (bold) or not. Also task can be opened, which means that it's not new anymore.
 
 ## Store
-
+```
 // tasks are more like threads
 tasks: [{
     lastDate // thread's last message date
@@ -58,3 +58,4 @@ users: [{
     name
     avatar
 }]
+```

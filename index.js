@@ -1,8 +1,13 @@
 'use strict';
 
 import {createStore} from 'redux';
-// import todoApp from './reducers'
-// import App from './components/App'
+import app from './reducers';
 
-const store = createStore(() => {});
-console.log(store);
+import InboxSampleTask from './components/inbox-sample-task';
+
+const store = createStore(app);
+
+const elem = InboxSampleTask(store);
+document.body.appendChild(elem);
+
+store.dispatch({type: 'foo'})

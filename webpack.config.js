@@ -11,6 +11,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(`${__dirname}/dist`)
     },
+    devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'inline-source-map',
     module: {
         loaders: [
             {

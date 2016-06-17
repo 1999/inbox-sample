@@ -9,7 +9,8 @@ module.exports = {
     entry: './index.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(`${__dirname}/dist`)
+        path: path.resolve(`${__dirname}/dist`),
+        publicPath: '/dist/'
     },
     devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'inline-source-map',
     module: {

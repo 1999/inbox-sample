@@ -1,0 +1,25 @@
+inbox-sample-navgroupitem {
+    display: block;
+    letter-spacing: -1;
+
+    .link {
+        text-decoration: none;
+    }
+
+    .icon {
+        vertical-align: top;
+    }
+
+    .text {
+        color: #616161;
+        display: inline-block;
+        padding-left: 24px;
+        vertical-align: top;
+    }
+}
+
+inbox-sample-navgroupitem.active {
+    .text {
+        font-weight: bold;
+    }
+}

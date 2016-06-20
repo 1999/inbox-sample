@@ -57,6 +57,7 @@ menu: {
                 id
                 active: bool
                 icon
+                color
                 title
             }]
         }

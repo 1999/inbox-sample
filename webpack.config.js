@@ -12,7 +12,7 @@ module.exports = {
         path: path.resolve(`${__dirname}/dist`),
         publicPath: '/dist/'
     },
-    devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'inline-source-map',
+    devtool: 'source-map',
     module: {
         loaders: [
             {

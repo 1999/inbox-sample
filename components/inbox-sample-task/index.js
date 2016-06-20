@@ -1,6 +1,6 @@
 'use strict';
 
-const CUSTOM_TAG_NAME = 'inbox-sample-header';
+const CUSTOM_TAG_NAME = 'inbox-sample-task';
 
 class InboxSampleTask extends HTMLElement {
 

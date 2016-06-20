@@ -1,13 +1,7 @@
 'use strict';
 
-import {createStore} from 'redux';
-import app from './reducers';
+import store from './store';
+import RootElement from './components/inbox-sample-root';
 
-import InboxSampleTask from './components/inbox-sample-task';
-
-const store = createStore(app);
-
-const elem = InboxSampleTask(store);
-document.body.appendChild(elem);
-
-store.dispatch({type: 'foo'})
+const rootElem = RootElement(store);
+document.body.appendChild(rootElem);

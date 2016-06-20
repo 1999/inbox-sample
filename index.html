@@ -5,13 +5,31 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="dist/bundle.css">
-    <script defer src="dist/bundle.js"></script>
 </head>
 <body>
 
-<header>header</header>
-<nav>nav</nav>
-<div>content</div>
+<template id="inbox-sample-root">
+    <inbox-sample-header></inbox-sample-header>
+    <inbox-sample-nav></inbox-sample-nav>
+    <inbox-sample-tasks></inbox-sample-tasks/>
+</template>
+
+<template id="inbox-sample-nav">
+    <inbox-sample-navgroup id="" last=""></inbox-sample-navgroup>
+</template>
+
+<template id="inbox-sample-navgroup">
+    <div class="inbox-sample-navgroup__title"></div>
+</template>
+
+<template id="inbox-sample-navgroupitem">
+    <a href="#" class="link">
+        <img srcset="" alt="" src="" class="icon"/>
+        <span class="text"></span>
+    </a>
+</template>
+
+<script defer src="dist/bundle.js"></script>
 
 </body>
 </html>

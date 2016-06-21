@@ -38,6 +38,7 @@ class InboxSampleNavGroupItem extends HTMLElement {
 
         const icon = cloneFragment.querySelector('.icon');
         icon.srcset = generateSrcset(item.icon);
+        icon.width = icon.height = 24;
         icon.src = item.icon['1x'];
         icon.alt = item.title;
 

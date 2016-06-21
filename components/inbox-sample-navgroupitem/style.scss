@@ -1,24 +1,38 @@
 inbox-sample-navgroupitem {
+    border-radius: 2px;
     display: block;
-    letter-spacing: -1;
+
+    &:hover {
+        background: rgba(0, 0, 0, .03);
+    }
 
     .link {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        overflow: hidden;
+        padding: 0 12px 0 16px;
         text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .icon {
-        vertical-align: top;
+        padding: 8px 0;
     }
 
     .text {
         color: #616161;
         display: inline-block;
+        font-size: 13px;
         padding-left: 24px;
         vertical-align: top;
     }
 }
 
 inbox-sample-navgroupitem.active {
+    background: rgba(0, 0, 0, .05);
+
     .text {
         font-weight: bold;
     }

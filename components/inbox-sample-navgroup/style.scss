@@ -1,7 +1,8 @@
 inbox-sample-navgroup {
     display: block;
+    padding: 12px 0;
 
-    &.last {
-        border-bottom: 1px solid red;
+    &:not(.last) {
+        border-bottom: 1px solid #ddd;
     }
 }

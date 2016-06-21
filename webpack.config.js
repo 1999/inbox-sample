@@ -20,7 +20,8 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
-                    presets: ['es2015-node6']
+                    presets: ['es2015-node6'],
+                    plugins: ['transform-object-rest-spread']
                 }
             },
             // 1) run any file that ends in ".scss" through the sass-loader to transpile it to css

@@ -3,7 +3,7 @@ inbox-sample-header {
     box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
     display: block;
     height: 56px;
-    transition: background .15s;
+    transition: background .1s;
 
     & .icon-mainaction {
         box-sizing: border-box;
@@ -18,12 +18,29 @@ inbox-sample-header {
         color: #fff;
         display: inline-block;
         font-size: 20px;
+        font-weight: 300;
         line-height: 56px;
+    }
+
+    & .menu-toggler {
+        display: inline-block;
+    }
+
+    & .back {
+        display: none;
     }
 
     &.action {
         .title {
             color: #212121;
+        }
+
+        & .menu-toggler {
+            display: none;
+        }
+
+        & .back {
+            display: inline-block;
         }
     }
 }

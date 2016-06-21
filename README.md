@@ -31,7 +31,8 @@ tasks: [{
     lastDate // thread's last message date
     avatar // thread's last message (not sent!) avatar (ref users)
     participants: [users]
-    selected // either thread is open or not
+    checked // either thread is checked or not
+    open // either thread is open or not
     menuItems // tags
     active // thread is not open, just active
 

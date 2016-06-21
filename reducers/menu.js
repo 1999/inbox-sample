@@ -15,6 +15,12 @@ export default function (state = [], action) {
 
             return Object.assign({}, state, {groups});
 
+        case 'TOGGLE_NAV_MENU':
+            return {
+                ...state,
+                show: !state.show
+            };
+
         default:
             return state;
     }

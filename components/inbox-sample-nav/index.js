@@ -15,6 +15,8 @@ class InboxSampleNav extends HTMLElement {
         const state = store.getState();
         const templateNavGroup = document.querySelector(`#${CUSTOM_TAG_NAME}`);
 
+        this._updateVisibility();
+
         state.menu.groups.forEach((group, index) => {
             const cloneFragment = document.importNode(templateNavGroup.content, true);
             const navGroup = cloneFragment.querySelector('inbox-sample-navgroup');
@@ -35,7 +37,12 @@ class InboxSampleNav extends HTMLElement {
     }
 
     _onStoreChange() {
+        this._updateVisibility();
+    }
+
+    _updateVisibility() {
         const state = store.getState();
+        this.classList.toggle('hidden', !state.menu.show);
     }
 
 }

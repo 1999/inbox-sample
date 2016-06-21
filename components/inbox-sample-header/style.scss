@@ -1,7 +1,7 @@
 inbox-sample-header {
     background: #edf4fd;
     box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-    display: block;
+    display: flex;
     height: 56px;
     transition: background .1s;
 
@@ -28,6 +28,17 @@ inbox-sample-header {
 
     & .back {
         display: none;
+    }
+
+    & .services {
+        margin-left: auto;
+
+        & .services__service {
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: top;
+            padding: 16px 4px;
+        }
     }
 
     &.action {

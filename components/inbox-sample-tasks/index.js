@@ -2,6 +2,7 @@
 
 import store from '../../store';
 import style from './style.scss';
+import DayTasksElement from '../inbox-sample-daytasks';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-tasks';
 
@@ -10,21 +11,32 @@ class InboxSampleTasks extends HTMLElement {
     createdCallback() {
         this._onStoreChange = this._onStoreChange.bind(this);
 
-        // // pre-build HTML
-        // const state = store.getState();
-        // const templateNavGroup = document.querySelector(`#${CUSTOM_TAG_NAME}`);
+        const state = store.getState();
+        const periods = new Set([
+            {from: 'today start', to: 'today end'},
+            {from: 'yesterda start', to: 'yesterda end'},
+            {from: 'current month start', to: 'yesterdat start'},
+            {from: '1970', to: 'current month start'}
+        ]);
 
-        // this._updateVisibility();
+        const threadDays = state.tasks.reduce((memo, task) => {
+            const date = new Date(task.lastDate);
+            const dateStr = `${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`;
 
-        // state.menu.groups.forEach((group, index) => {
-        //     const cloneFragment = document.importNode(templateNavGroup.content, true);
-        //     const navGroup = cloneFragment.querySelector('inbox-sample-navgroup');
+            memo.add(dateStr);
+            return memo;
+        }, new Set);
 
-        //     navGroup.id = group.id;
-        //     navGroup.last = (index + 1 === state.menu.groups.length);
+        for (const dateStr of threadDays) {
+            const threadDayElem = document.createElement('inbox-sample-daytasks');
+            const [year, month, day] = dateStr.split('.');
 
-        //     this.appendChild(cloneFragment);
-        // });
+            threadDayElem.year = year;
+            threadDayElem.month = month;
+            threadDayElem.day = day;
+
+            this.appendChild(threadDayElem);
+        }
     }
 
     attachedCallback() {

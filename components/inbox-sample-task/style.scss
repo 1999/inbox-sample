@@ -20,17 +20,27 @@ inbox-sample-task {
     & .participants {
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 184px;
+        min-width: 184px;
         white-space: nowrap;
+        width: 184px;
     }
 
-    & .subject {
+    & .text {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        padding: 0 16px;
+    }
+
+    & .text__subject {
+        white-space: nowrap;
+
         &::first-letter {
             text-transform: uppercase;
         }
     }
 
-    & .text-review {
+    & .text__review {
         &::before {
             content: '\2013';
             display: inline-block;

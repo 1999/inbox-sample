@@ -36,11 +36,11 @@ class InboxSampleTask extends HTMLElement {
         }
 
         // fill subject field
-        const subjectElem = cloneFragment.querySelector('.subject');
+        const subjectElem = cloneFragment.querySelector('.text__subject');
         subjectElem.innerHTML = task.subject;
 
         // fill text field
-        const textFieldElem = cloneFragment.querySelector('.text-review');
+        const textFieldElem = cloneFragment.querySelector('.text__review');
         textFieldElem.innerHTML = task.messages[0].message;
 
         this.appendChild(cloneFragment);

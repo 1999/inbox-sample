@@ -51,7 +51,7 @@ for (let i = 0; i < 10; i++) {
             messages: []
         };
 
-        const messagesPerThread = Math.round(Math.random() * 30);
+        const messagesPerThread = Math.max(Math.round(Math.random() * 10), 1);
         for (let k = 0; k < messagesPerThread; k++) {
             let messageDate = new Date(date);
             messageDate.setHours(messageDate.getHours() - j - Math.random() * 10 * k);

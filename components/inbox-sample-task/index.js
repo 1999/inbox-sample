@@ -2,7 +2,7 @@
 
 import store from '../../store';
 import style from './style.scss';
-import {generateSrcset} from '../../lib/utils';
+import {calcActiveNavGroupItem, generateSrcset} from '../../lib/utils';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-task';
 
@@ -16,34 +16,35 @@ class InboxSampleTask extends HTMLElement {
         this._unStoreChange = store.subscribe(this._onStoreChange);
 
         const state = store.getState();
-        const task = state.tasks.find(task => task.id === this.id);
+        this._task = state.tasks.find(task => task.id === this.id);
 
         const template = document.querySelector(`#${CUSTOM_TAG_NAME}`);
         const cloneFragment = document.importNode(template.content, true);
 
         // set avatar icon
         const avatarElem = cloneFragment.querySelector('.avatar img');
-        const lastUser = state.users[task.avatar];
+        const lastUser = state.users[this._task.avatar];
         avatarElem.srcset = generateSrcset(lastUser.avatar);
 
         // fill participants field
         const participantsElem = cloneFragment.querySelector('.participants');
-        const participants = task.participants.map(userId => state.users[userId].title);
+        const participants = this._task.participants.map(userId => state.users[userId].title);
         participantsElem.innerHTML = participants.join(', ');
 
-        if (task.messages.length > 1) {
-            participantsElem.innerHTML += ` (${task.messages.length})`;
+        if (this._task.messages.length > 1) {
+            participantsElem.innerHTML += ` (${this._task.messages.length})`;
         }
 
         // fill subject field
         const subjectElem = cloneFragment.querySelector('.text__subject');
-        subjectElem.innerHTML = task.subject;
+        subjectElem.innerHTML = this._task.subject;
 
         // fill text field
         const textFieldElem = cloneFragment.querySelector('.text__review');
-        textFieldElem.innerHTML = task.messages[0].message;
+        textFieldElem.innerHTML = this._task.messages[0].message;
 
         this.appendChild(cloneFragment);
+        this._updateVisibility();
     }
 
     detachedCallback() {
@@ -51,7 +52,14 @@ class InboxSampleTask extends HTMLElement {
     }
 
     _onStoreChange() {
-        // this._updateVisibility();
+        this._updateVisibility();
+    }
+
+    _updateVisibility() {
+        const state = store.getState();
+        const {id: activeMenuItemId} = calcActiveNavGroupItem(state);
+
+        this.classList.toggle('hidden', this._task.menuItem !== activeMenuItemId);
     }
 
 }

@@ -2,6 +2,7 @@
 
 import store from '../../store';
 import style from './style.scss';
+import {calcActiveNavGroupItem} from '../../lib/utils';
 import TasksListElement from '../inbox-sample-taskslist';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-daytasks';
@@ -14,6 +15,23 @@ class InboxSampleDayTasks extends HTMLElement {
 
     attachedCallback() {
         this._unStoreChange = store.subscribe(this._onStoreChange);
+        this._reRender();
+    }
+
+    detachedCallback() {
+        this._unStoreChange();
+    }
+
+    _onStoreChange() {
+        this._reRender();
+    }
+
+    _reRender() {
+        const state = store.getState();
+        const {id: activeMenuItemId} = calcActiveNavGroupItem(state);
+
+        // check that there are active tasks with `menuItem` set to activeMenuItemId
+        const hasTheseTasks = state.tasks.some(task => task.menuItem === activeMenuItemId);
 
         const template = document.querySelector(`#${CUSTOM_TAG_NAME}`);
         const clone = document.importNode(template.content, true);
@@ -27,15 +45,9 @@ class InboxSampleDayTasks extends HTMLElement {
         const title = clone.querySelector('.title');
         title.innerHTML = date.toLocaleDateString();
 
+        this.classList.toggle('hidden', !hasTheseTasks);
+        this.innerHTML = '';
         this.appendChild(clone);
-    }
-
-    detachedCallback() {
-        this._unStoreChange();
-    }
-
-    _onStoreChange() {
-        // this._updateVisibility();
     }
 
 }

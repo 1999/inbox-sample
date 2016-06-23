@@ -3,27 +3,12 @@
 import store from '../../store';
 import style from './style.scss';
 import {toggleNavMenu} from '../../actions';
+import {calcActiveNavGroupItem} from '../../lib/utils';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-header';
 
 const calcIsAction = state => {
     return state.tasks.some(task => task.checked);
-};
-
-const calcActiveNavGroupItem = state => {
-    let output;
-
-    stuff:
-    for (const group of state.menu.groups) {
-        for (const item of group.items) {
-            if (item.active) {
-                output = item;
-                break stuff;
-            }
-        }
-    }
-
-    return output;
 };
 
 class InboxSampleHeader extends HTMLElement {

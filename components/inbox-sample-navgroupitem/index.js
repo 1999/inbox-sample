@@ -3,15 +3,9 @@
 import store from '../../store';
 import style from './style.scss';
 import {selectNavTag} from '../../actions';
+import {generateSrcset} from '../../lib/utils';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-navgroupitem';
-
-const generateSrcset = objSrcset => {
-    return Object.keys(objSrcset).reduce((memo, key) => {
-        memo.push(`${objSrcset[key]} ${key}`);
-        return memo;
-    }, []).join(',');
-};
 
 const findCurrentNavItem = (groupId, itemId) => {
     const state = store.getState();

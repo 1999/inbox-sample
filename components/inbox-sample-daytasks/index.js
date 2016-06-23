@@ -23,6 +23,10 @@ class InboxSampleDayTasks extends HTMLElement {
         tasksList.month = this.month;
         tasksList.year = this.year;
 
+        const date = new Date(`${this.year}-${this.month}-${this.day}`);
+        const title = clone.querySelector('.title');
+        title.innerHTML = date.toLocaleDateString();
+
         this.appendChild(clone);
     }
 

@@ -34,6 +34,7 @@ tasks: [{
     checked // either thread is checked or not
     open // either thread is open or not
     menuItem // tag
+    subject
     active // thread is not open, just active
 
     messages: [{
@@ -68,9 +69,8 @@ pinned: bool // show only pinned
 conversations: bool // show conversations popup
 apps: bool // show apps popup
 users: [{
-    id,
     email
-    name
+    title
     avatar
 }]
 ```

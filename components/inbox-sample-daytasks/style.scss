@@ -1,3 +1,11 @@
 inbox-sample-daytasks {
     display: block;
+    margin-bottom: 20px;
+
+    & .title {
+        color: #616161;
+        line-height: 24px;
+        margin: 20px 0 8px;
+        padding: 0 24px;
+    }
 }

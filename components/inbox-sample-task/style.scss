@@ -1,0 +1,45 @@
+inbox-sample-task {
+    background: white;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 13px;
+    line-height: 28px;
+    padding: 6px 0;
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+
+    & .avatar {
+        line-height: 0;
+        padding: 0 22px;
+    }
+
+    & .avatar__img {
+        border-radius: 50%;
+    }
+
+    & .participants {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 184px;
+        white-space: nowrap;
+    }
+
+    & .subject {
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    & .text-review {
+        &::before {
+            content: '\2013';
+            display: inline-block;
+            padding: 0 8px;
+        }
+
+        color: #757575;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

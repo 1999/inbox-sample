@@ -32,6 +32,11 @@ for (let i = 0; i < 10; i++) {
         const participantsNum = Math.max(Math.round(Math.random() * 5), 2);
         const threadParticipants = [0, 1, 2, 3, 4].sort(() => Math.random() > 0.5).slice(0, participantsNum);
         const menuItem = ['inbox', 'done', 'ruka2013'].sort(() => Math.random() > 0.5)[0];
+        const subject = ['job', 'opportunity', 'change', 'world', 'awesome', 'love', 'details', 'uber', 'help', 'approach', 'new']
+            .sort(() => Math.random() > 0.5)
+            .sort(() => Math.random() > 0.5)
+            .slice(0, 3)
+            .join(' ');
 
         const thread = {
             id: `thread-${i}-${j}`,
@@ -40,6 +45,7 @@ for (let i = 0; i < 10; i++) {
             participants: threadParticipants,
             checked: false,
             open: false,
+            subject,
             menuItem,
             active: false,
             messages: []

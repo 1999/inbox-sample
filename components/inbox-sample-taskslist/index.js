@@ -2,6 +2,7 @@
 
 import store from '../../store';
 import style from './style.scss';
+import TaskElement from '../inbox-sample-task';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-taskslist';
 
@@ -15,7 +16,7 @@ class InboxSampleTasksList extends HTMLElement {
         this._unStoreChange = store.subscribe(this._onStoreChange);
 
         const state = store.getState();
-        const threads = state.tasks.filter(task => {
+        const tasks = state.tasks.filter(task => {
             const date = new Date(task.lastDate);
 
             return (
@@ -25,16 +26,11 @@ class InboxSampleTasksList extends HTMLElement {
             );
         });
 
-        console.log(this.day)
-        console.log(this.month)
-        console.log(this.year)
+        for (const task of tasks) {
+            const taskElem = document.createElement('inbox-sample-task');
+            taskElem.id = task.id;
 
-        for (const thread of threads) {
-            const threadElem = document.createElement('inbox-sample-thread');
-            threadElem.id = thread.id;
-            threadElem.innerHTML = thread.id;
-
-            this.appendChild(threadElem);
+            this.appendChild(taskElem);
         }
     }
 

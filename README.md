@@ -33,19 +33,19 @@ tasks: [{
     participants: [users]
     checked // either thread is checked or not
     open // either thread is open or not
-    menuItems // tags
+    menuItem // tag
     active // thread is not open, just active
 
-    messages: [
+    messages: [{
         active // message is not open, just active
         date
-        sender // id
+        sender // id (ref users)
         recipients: [users]
         message
         conversationExpanded: bool
         expanded // whether message is open or not
         advanced // advanced mode
-    ]
+    }]
 }]
 loading: bool // show spinner for whole page
 menu: {

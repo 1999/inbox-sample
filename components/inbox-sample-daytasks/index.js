@@ -31,7 +31,16 @@ class InboxSampleDayTasks extends HTMLElement {
         const {id: activeMenuItemId} = calcActiveNavGroupItem(state);
 
         // check that there are active tasks with `menuItem` set to activeMenuItemId
-        const hasTheseTasks = state.tasks.some(task => task.menuItem === activeMenuItemId);
+        const hasTheseTasks = state.tasks.some(task => {
+            const date = new Date(task.lastDate);
+
+            return (
+                task.menuItem === activeMenuItemId &&
+                date.getDate() === Number(this.day) &&
+                date.getMonth() === Number(this.month) &&
+                date.getFullYear() === Number(this.year)
+            );
+        });
 
         const template = document.querySelector(`#${CUSTOM_TAG_NAME}`);
         const clone = document.importNode(template.content, true);

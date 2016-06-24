@@ -35,6 +35,8 @@ class InboxSampleTask extends HTMLElement {
             participantsElem.innerHTML += ` (${this._task.messages.length})`;
         }
 
+        participantsElem.title = participantsElem.innerHTML;
+
         // fill subject field
         const subjectElem = cloneFragment.querySelector('.text__subject');
         subjectElem.innerHTML = this._task.subject;

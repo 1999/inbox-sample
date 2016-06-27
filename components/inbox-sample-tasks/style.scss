@@ -3,4 +3,11 @@ inbox-sample-tasks {
     flex-grow: 1;
     padding: 0 104px 0 52px;
     width: calc(100% - 216px);
+
+    &.wide {
+        padding: 0 104px;
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
 }

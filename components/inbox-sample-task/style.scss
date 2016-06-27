@@ -13,17 +13,6 @@ inbox-sample-task {
     & .avatar {
         line-height: 0;
         padding: 0 22px;
-
-        &:hover {
-            & .avatar__img {
-                display: none;
-            }
-
-            & .avatar__check,
-            & .avatar__uncheck {
-                display: block;
-            }
-        }
     }
 
     & .avatar__img {
@@ -90,6 +79,32 @@ inbox-sample-task {
 
     &.hidden {
         display: none;
+    }
+
+    &.checked {
+        background: #edf4fd;
+
+        & .avatar__img,
+        & .avatar__check {
+            display: none;
+        }
+
+        & .avatar__uncheck {
+            display: block;
+        }
+    }
+
+    &:not(.checked) {
+        & .avatar:hover {
+            & .avatar__img,
+            & .avatar__uncheck {
+                display: none;
+            }
+
+            & .avatar__check {
+                display: block;
+            }
+        }
     }
 
     &:hover {

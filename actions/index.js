@@ -12,3 +12,16 @@ export function toggleNavMenu() {
         type: 'TOGGLE_NAV_MENU'
     };
 }
+
+export function toggleSelectTask(id) {
+    return {
+        type: 'TOGGLE_SELECT_TASK',
+        payload: {id}
+    };
+}
+
+export function uncheckAllTasks() {
+    return {
+        type: 'UNCHECK_TASKS_ALL'
+    };
+}

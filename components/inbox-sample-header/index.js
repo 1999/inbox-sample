@@ -21,10 +21,12 @@ class InboxSampleHeader extends HTMLElement {
         const cloneFragment = document.importNode(template.content, true);
 
         this.appendChild(cloneFragment);
-        this._reRender();
 
         this._menuToggler = this.querySelector('.menu-toggler');
+        this._titleElem = this.querySelector('.title');
+
         this._onMenuToggleClick = this._onMenuToggleClick.bind(this);
+        this._reRender();
     }
 
     attachedCallback() {
@@ -49,11 +51,14 @@ class InboxSampleHeader extends HTMLElement {
 
         this.classList.toggle('action', isAction);
 
-        if (!isAction) {
+        if (isAction) {
+            this._titleElem.innerHTML = 'Back';
+            this.style.background = 'none';
+        } else {
             const activeNavGroupItem = calcActiveNavGroupItem(state);
-            this.style.backgroundColor = `#${activeNavGroupItem.color}`;
 
-            this.querySelector('.title').innerHTML = activeNavGroupItem.title;
+            this.style.background = `#${activeNavGroupItem.color}`;
+            this._titleElem.innerHTML = activeNavGroupItem.title;
         }
     }
 

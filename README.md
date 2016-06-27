@@ -28,6 +28,7 @@ open http://localhost:8080/webpack-dev-server/
 ```
 // tasks are more like threads
 tasks: [{
+    id,
     lastDate // thread's last message date
     avatar // thread's last message (not sent!) avatar (ref users)
     participants: [users]

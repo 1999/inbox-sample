@@ -3,6 +3,7 @@
 import store from '../../store';
 import style from './style.scss';
 import {calcActiveNavGroupItem, generateSrcset} from '../../lib/utils';
+import {toggleSelectTask} from '../../actions';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-task';
 
@@ -14,6 +15,7 @@ class InboxSampleTask extends HTMLElement {
 
     attachedCallback() {
         this._unStoreChange = store.subscribe(this._onStoreChange);
+        this._onTaskCheck = this._onTaskCheck.bind(this);
 
         const state = store.getState();
         this._task = state.tasks.find(task => task.id === this.id);
@@ -25,6 +27,12 @@ class InboxSampleTask extends HTMLElement {
         const avatarElem = cloneFragment.querySelector('.avatar img');
         const lastUser = state.users[this._task.avatar];
         avatarElem.srcset = generateSrcset(lastUser.avatar);
+
+        // bind to task check actions
+        this._taskCheckElem = cloneFragment.querySelector('.avatar__check');
+        this._taskCheckElem.addEventListener('click', this._onTaskCheck, false);
+        this._taskUncheckElem = cloneFragment.querySelector('.avatar__uncheck');
+        this._taskUncheckElem.addEventListener('click', this._onTaskCheck, false);
 
         // fill participants field
         const participantsElem = cloneFragment.querySelector('.participants');
@@ -46,15 +54,22 @@ class InboxSampleTask extends HTMLElement {
         textFieldElem.innerHTML = this._task.messages[0].message;
 
         this.appendChild(cloneFragment);
+
         this._updateVisibility();
+        this._updateCheckedStatus();
     }
 
     detachedCallback() {
         this._unStoreChange();
+
+        // unbind from task check actions
+        this._taskCheckElem.removeEventListener('click', this._onTaskCheck);
+        this._taskUncheckElem.addEventListener('click', this._onTaskCheck);
     }
 
     _onStoreChange() {
         this._updateVisibility();
+        this._updateCheckedStatus();
     }
 
     _updateVisibility() {
@@ -62,6 +77,22 @@ class InboxSampleTask extends HTMLElement {
         const {id: activeMenuItemId} = calcActiveNavGroupItem(state);
 
         this.classList.toggle('hidden', this._task.menuItem !== activeMenuItemId);
+    }
+
+    _updateCheckedStatus() {
+        const state = store.getState();
+
+        for (const {id, checked} of state.tasks) {
+            if (this._task.id !== id) {
+                continue;
+            }
+
+            this.classList.toggle('checked', checked);
+        }
+    }
+
+    _onTaskCheck() {
+        store.dispatch(toggleSelectTask(this._task.id));
     }
 
 }

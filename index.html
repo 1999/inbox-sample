@@ -5,6 +5,20 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="dist/bundle.css">
+
+    <!-- preload some images in advance -->
+    <link rel="preload" as="image" href="https://www.gstatic.com/images/icons/material/system/1x/hangout_black_24dp.png" media="(max-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://www.gstatic.com/images/icons/material/system/2x/hangout_black_24dp.png" media="(min-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_view_module_black_24dp.png" media="(max-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_view_module_black_48dp.png" media="(min-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/google/material-design-icons/master/social/1x_web/ic_notifications_black_24dp.png" media="(max-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/google/material-design-icons/master/social/1x_web/ic_notifications_black_48dp.png" media="(min-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/google/material-design-icons/master/social/1x_web/ic_person_black_24dp.png" media="(max-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/google/material-design-icons/master/social/1x_web/ic_person_black_48dp.png" media="(min-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://www.gstatic.com/images/icons/material/system/1x/check_box_outline_blank_grey600_24dp.png" media="(max-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://www.gstatic.com/images/icons/material/system/2x/check_box_outline_blank_grey600_24dp.png" media="(min-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://www.gstatic.com/images/icons/material/system/1x/check_box_grey600_24dp.png" media="(max-resolution: 192dpi)">
+    <link rel="preload" as="image" href="https://www.gstatic.com/images/icons/material/system/2x/check_box_grey600_24dp.png" media="(min-resolution: 192dpi)">
 </head>
 <body>
 
@@ -15,13 +29,15 @@
 </template>
 
 <template id="inbox-sample-header">
-    <div class="icon-mainaction menu-toggler">
-        <img width="24" height="24" srcset="https://www.gstatic.com/images/icons/material/system/1x/menu_white_24dp.png 1x, https://www.gstatic.com/images/icons/material/system/2x/menu_white_24dp.png 2x" alt="Toggle menu">
+    <div class="mainaction">
+        <div class="mainaction__icon menu-toggler">
+            <img width="24" height="24" srcset="https://www.gstatic.com/images/icons/material/system/1x/menu_white_24dp.png 1x, https://www.gstatic.com/images/icons/material/system/2x/menu_white_24dp.png 2x" alt="Toggle menu">
+        </div>
+        <div class="mainaction__icon back">
+            <img width="24" height="24" srcset="https://www.gstatic.com/images/icons/material/system/1x/arrow_back_black_24dp.png 1x, https://www.gstatic.com/images/icons/material/system/2x/arrow_back_black_24dp.png 2x" alt="Go back">
+        </div>
+        <div class="title"></div>
     </div>
-    <div class="icon-mainaction back">
-        <img width="24" height="24" srcset="https://www.gstatic.com/images/icons/material/system/1x/arrow_back_black_24dp.png 1x, https://www.gstatic.com/images/icons/material/system/2x/arrow_back_black_24dp.png 2x" alt="Go back">
-    </div>
-    <div class="title"></div>
 
     <inbox-sample-autocomplete></inbox-sample-autocomplete>
     <inbox-sample-headeractions></inbox-sample-headeractions>
@@ -40,6 +56,25 @@
             <img width="24" height="24" srcset="https://raw.githubusercontent.com/google/material-design-icons/master/social/1x_web/ic_person_white_24dp.png 1x, https://raw.githubusercontent.com/google/material-design-icons/master/social/1x_web/ic_person_white_48dp.png 2x" alt="Profile">
         </div>
         <div class="avatar"></div>
+    </div>
+</template>
+
+<template id="inbox-sample-headeractions">
+    <div class="counter"></div>
+
+    <div class="manage">
+        <div class="manage__icon pin" title="Pin task">
+            <img srcset="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/btw_ic_pin_black_24dp.png 1x, https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/2x/btw_ic_pin_black_24dp_2x.png 2x" width="24" height="24" alt="Pin task"/>
+        </div>
+        <div class="manage__icon snooze" title="Snooze until...">
+            <img srcset="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/btw_ic_snooze_black_24dp.png 1x, https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/2x/btw_ic_snooze_black_24dp_2x.png 2x" width="24" height="24" alt="Snooze"/>
+        </div>
+        <div class="manage__icon done" title="Mark task as done">
+            <img srcset="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/btw_ic_done_black_24dp.png 1x, https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/2x/btw_ic_done_black_24dp_2x.png 2x" width="24" height="24" alt="Mark as done"/>
+        </div>
+        <div class="manage__icon actions" title="Available actions">
+            <img srcset="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/btw_ic_overflow_black_24dp.png 1x, https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/2x/btw_ic_overflow_black_24dp_2x.png 2x" width="24" height="24" alt="Available actions"/>
+        </div>
     </div>
 </template>
 

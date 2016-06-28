@@ -1,0 +1,36 @@
+inbox-sample-headeractions {
+    display: flex;
+    flex-grow: 1;
+    line-height: 56px;
+
+    & .counter {
+        color: #3c80f6;
+        font-size: 16px;
+        padding-left: 200px;
+    }
+
+    & .manage {
+        margin: 0 16px 0 auto;
+    }
+
+    & .manage__icon {
+        cursor: pointer;
+        display: inline-block;
+        line-height: 0;
+        opacity: .6;
+        padding: 16px 0;
+        vertical-align: top;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    & .manage {
+
+    }
+
+    &.hide {
+        display: none;
+    }
+}

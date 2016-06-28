@@ -6,13 +6,22 @@ inbox-sample-header {
     transition: background .1s;
     width: 100%;
 
-    & .icon-mainaction {
+    & .mainaction {
+        cursor: pointer;
+    }
+
+    & .mainaction__icon {
         box-sizing: border-box;
         cursor: pointer;
         display: inline-block;
+        opacity: .7;
         padding: 16px 24px;
         vertical-align: top;
         width: 72px;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 
     & .title {
@@ -28,6 +37,7 @@ inbox-sample-header {
     }
 
     & .back {
+        cursor: pointer;
         display: none;
     }
 
@@ -37,8 +47,13 @@ inbox-sample-header {
         & .services__service {
             cursor: pointer;
             display: inline-block;
-            vertical-align: top;
+            opacity: .9;
             padding: 16px 4px;
+            vertical-align: top;
+
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 

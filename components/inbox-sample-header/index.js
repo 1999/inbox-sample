@@ -2,14 +2,11 @@
 
 import store from '../../store';
 import style from './style.scss';
-import {toggleNavMenu} from '../../actions';
-import {calcActiveNavGroupItem} from '../../lib/utils';
+import {toggleNavMenu, uncheckAllTasks} from '../../actions';
+import {calcActiveNavGroupItem, calcIsAction} from '../../lib/utils';
+import HeaderActionsElement from '../inbox-sample-headeractions';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-header';
-
-const calcIsAction = state => {
-    return state.tasks.some(task => task.checked);
-};
 
 class InboxSampleHeader extends HTMLElement {
 
@@ -22,23 +19,27 @@ class InboxSampleHeader extends HTMLElement {
 
         this.appendChild(cloneFragment);
 
-        this._menuToggler = this.querySelector('.menu-toggler');
+        this._menuTogglerElem = this.querySelector('.menu-toggler');
+        this._mainActionElem = this.querySelector('.mainaction');
         this._titleElem = this.querySelector('.title');
 
         this._onMenuToggleClick = this._onMenuToggleClick.bind(this);
+        this._onBackClick = this._onBackClick.bind(this);
         this._reRender();
     }
 
     attachedCallback() {
         this._unStoreChange = store.subscribe(this._onStoreChange);
 
-        this._menuToggler.addEventListener('click', this._onMenuToggleClick, false);
+        this._menuTogglerElem.addEventListener('click', this._onMenuToggleClick, false);
+        this._mainActionElem.addEventListener('click', this._onBackClick, false);
     }
 
     detachedCallback() {
         this._unStoreChange();
 
-        this._menuToggler.removeEventListener('click', this._onMenuToggleClick);
+        this._menuTogglerElem.removeEventListener('click', this._onMenuToggleClick);
+        this._mainActionElem.removeEventListener('click', this._onBackClick);
     }
 
     _onStoreChange() {
@@ -66,6 +67,15 @@ class InboxSampleHeader extends HTMLElement {
 
     _onMenuToggleClick() {
         store.dispatch(toggleNavMenu());
+    }
+
+    _onBackClick() {
+        const state = store.getState();
+        const isAction = calcIsAction(state);
+
+        if (isAction) {
+            store.dispatch(uncheckAllTasks());
+        }
     }
 
     _updateServicesIcons(useDark) {

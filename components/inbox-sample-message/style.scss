@@ -3,7 +3,47 @@ inbox-sample-message {
     display: flex;
     padding: 20px;
 
-    & .open {
+    & .inbox-sample-message__avatar {
+        margin-right: 20px;
+    }
 
+    & .inbox-sample-message__avatar-img {
+        border-radius: 50%;
+    }
+
+    & .inbox-sample-message__content {
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    & .inbox-sample-message__participants {
+        flex-grow: 1;
+        line-height: 16px;
+    }
+
+    & .inbox-sample-message__sender {
+        font-weight: bold;
+    }
+
+    & .inbox-sample-message__date {
+        line-height: 16px;
+    }
+
+    & .inbox-sample-message__text {
+        color: #757575;
+        margin-top: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &.open {
+        & .inbox-sample-message__text {
+            color: #333;
+            white-space: normal;
+        }
     }
 }

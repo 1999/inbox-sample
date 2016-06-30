@@ -21,7 +21,7 @@ class InboxSampleMessagesList extends HTMLElement {
         task.messages.forEach(({id}) => {
             const messageElem = document.createElement('inbox-sample-message');
             messageElem.task = this.task;
-            messageElem.message = this.message;
+            messageElem.message = id;
             messageElem.open = (this.message === id);
 
             this.appendChild(messageElem);

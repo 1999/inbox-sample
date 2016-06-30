@@ -15,7 +15,24 @@ class InboxSampleDayTasks extends HTMLElement {
 
     attachedCallback() {
         this._unStoreChange = store.subscribe(this._onStoreChange);
-        this._reRender();
+
+        const state = store.getState();
+        const {id: activeMenuItemId} = calcActiveNavGroupItem(state);
+
+        const template = document.querySelector(`#${CUSTOM_TAG_NAME}`);
+        const clone = document.importNode(template.content, true);
+
+        const tasksList = clone.querySelector('inbox-sample-taskslist');
+        tasksList.day = this.day;
+        tasksList.month = this.month;
+        tasksList.year = this.year;
+
+        const date = new Date(`${this.year}-${this.month}-${this.day}`);
+        const title = clone.querySelector('.title');
+        title.innerHTML = date.toLocaleDateString();
+
+        this.appendChild(clone);
+        this._updateVisibility();
     }
 
     detachedCallback() {
@@ -23,10 +40,10 @@ class InboxSampleDayTasks extends HTMLElement {
     }
 
     _onStoreChange() {
-        this._reRender();
+        this._updateVisibility();
     }
 
-    _reRender() {
+    _updateVisibility() {
         const state = store.getState();
         const {id: activeMenuItemId} = calcActiveNavGroupItem(state);
 
@@ -42,21 +59,7 @@ class InboxSampleDayTasks extends HTMLElement {
             );
         });
 
-        const template = document.querySelector(`#${CUSTOM_TAG_NAME}`);
-        const clone = document.importNode(template.content, true);
-
-        const tasksList = clone.querySelector('inbox-sample-taskslist');
-        tasksList.day = this.day;
-        tasksList.month = this.month;
-        tasksList.year = this.year;
-
-        const date = new Date(`${this.year}-${this.month}-${this.day}`);
-        const title = clone.querySelector('.title');
-        title.innerHTML = date.toLocaleDateString();
-
         this.classList.toggle('hidden', !hasTheseTasks);
-        this.innerHTML = '';
-        this.appendChild(clone);
     }
 
 }

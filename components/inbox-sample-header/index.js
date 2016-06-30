@@ -85,7 +85,6 @@ class InboxSampleHeader extends HTMLElement {
         // probably it's a bit early to use for..of for NodeLists
         [].forEach.call(this.querySelectorAll('.services__service img'), serviceImg => {
             serviceImg.srcset = serviceImg.srcset.replace(from, to);
-            console.log(serviceImg.srcset)
         });
     }
 

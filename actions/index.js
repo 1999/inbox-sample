@@ -25,3 +25,10 @@ export function uncheckAllTasks() {
         type: 'UNCHECK_TASKS_ALL'
     };
 }
+
+export function toggleOpenTask(id) {
+    return {
+        type: 'TOGGLE_OPEN_CLOSE_TASK',
+        payload: {id}
+    };
+}

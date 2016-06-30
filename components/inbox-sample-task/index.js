@@ -3,7 +3,8 @@
 import store from '../../store';
 import style from './style.scss';
 import {calcActiveNavGroupItem, generateSrcset} from '../../lib/utils';
-import {toggleSelectTask} from '../../actions';
+import {toggleOpenTask, toggleSelectTask} from '../../actions';
+import MessagesElem from '../../components/inbox-sample-messages';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-task';
 
@@ -16,6 +17,7 @@ class InboxSampleTask extends HTMLElement {
     attachedCallback() {
         this._unStoreChange = store.subscribe(this._onStoreChange);
         this._onTaskCheck = this._onTaskCheck.bind(this);
+        this._onTaskOpen = this._onTaskOpen.bind(this);
 
         const state = store.getState();
         this._task = state.tasks.find(task => task.id === this.id);
@@ -57,6 +59,8 @@ class InboxSampleTask extends HTMLElement {
 
         this._updateVisibility();
         this._updateCheckedStatus();
+
+        this.addEventListener('click', this._onTaskOpen, false);
     }
 
     detachedCallback() {
@@ -65,11 +69,14 @@ class InboxSampleTask extends HTMLElement {
         // unbind from task check actions
         this._taskCheckElem.removeEventListener('click', this._onTaskCheck);
         this._taskUncheckElem.addEventListener('click', this._onTaskCheck);
+
+        this.removeEventListener('click', this._onTaskOpen);
     }
 
     _onStoreChange() {
         this._updateVisibility();
         this._updateCheckedStatus();
+        this._toggleRefMessagesList();
     }
 
     _updateVisibility() {
@@ -91,8 +98,38 @@ class InboxSampleTask extends HTMLElement {
         }
     }
 
-    _onTaskCheck() {
+    _toggleRefMessagesList() {
+        const state = store.getState();
+
+        for (const {id, open, messages} of state.tasks) {
+            if (this._task.id !== id) {
+                continue;
+            }
+
+            const messagesListElem = this.querySelector('inbox-sample-messages');
+            this.classList.toggle('open', open);
+
+            if (open) {
+                const newMessagesListElem = document.createElement('inbox-sample-messages');
+                newMessagesListElem.task = id;
+                newMessagesListElem.message = messages[messages.length - 1].id;
+
+                this.appendChild(newMessagesListElem);
+            } else {
+                if (messagesListElem) {
+                    messagesListElem.remove();
+                }
+            }
+        }
+    }
+
+    _onTaskCheck(evt) {
         store.dispatch(toggleSelectTask(this._task.id));
+        evt.stopPropagation();
+    }
+
+    _onTaskOpen() {
+        store.dispatch(toggleOpenTask(this._task.id));
     }
 
 }

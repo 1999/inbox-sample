@@ -12,7 +12,7 @@ class InboxSampleMessagesList extends HTMLElement {
     attachedCallback() {
         const state = store.getState();
         const task = state.tasks.find(task => task.id === this.task);
-        let lastMessageElem;
+        let openMessageElem;
 
         task.messages.forEach(({id}) => {
             const messageElem = document.createElement('inbox-sample-message');
@@ -21,11 +21,17 @@ class InboxSampleMessagesList extends HTMLElement {
             messageElem.open = (this.message === id);
 
             this.appendChild(messageElem);
-            lastMessageElem = messageElem;
+
+            if (messageElem.open) {
+                openMessageElem = messageElem;
+            }
         });
 
         // scroll to the last message
-        window.scrollTo(0, lastMessageElem.offsetTop - SCROLL_MARGIN_BEFORE_LAST_MESSAGE);
+        if (openMessageElem) {
+            console.log(openMessageElem)
+            window.scrollTo(0, openMessageElem.offsetTop - SCROLL_MARGIN_BEFORE_LAST_MESSAGE);
+        }
     }
 
 }

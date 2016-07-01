@@ -59,6 +59,7 @@ class InboxSampleTask extends HTMLElement {
 
         this._updateVisibility();
         this._updateCheckedStatus();
+        this._toggleRefMessagesList();
 
         this.addEventListener('click', this._onTaskOpen, false);
     }
@@ -111,8 +112,13 @@ class InboxSampleTask extends HTMLElement {
             if (open) {
                 if (!messagesListElem) {
                     const newMessagesListElem = document.createElement('inbox-sample-messages');
+                    const openMessage = messages.find(message => message.expanded);
+
                     newMessagesListElem.task = id;
-                    newMessagesListElem.message = messages[messages.length - 1].id;
+                    newMessagesListElem.message = openMessage
+                        ? openMessage.id
+                        : messages[messages.length - 1].id;
+
                     newMessagesListElem.classList.add('prerender')
 
                     this.appendChild(newMessagesListElem);

@@ -1,0 +1,480 @@
+/* line 1, stdin */
+inbox-sample-header {
+    background: #edf4fd;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    display: flex;
+    height: 56px;
+    transition: background .1s;
+    width: 100%;
+    will-change: background;
+}
+
+/* line 10, stdin */
+inbox-sample-header .mainaction {
+    cursor: pointer;
+}
+
+/* line 14, stdin */
+inbox-sample-header .mainaction__icon {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    opacity: .7;
+    padding: 16px 24px;
+    vertical-align: top;
+    width: 72px;
+}
+
+/* line 23, stdin */
+inbox-sample-header .mainaction__icon:hover {
+    opacity: 1;
+}
+
+/* line 28, stdin */
+inbox-sample-header .title {
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 56px;
+}
+
+/* line 36, stdin */
+inbox-sample-header .menu-toggler {
+    display: inline-block;
+}
+
+/* line 40, stdin */
+inbox-sample-header .back {
+    cursor: pointer;
+    display: none;
+}
+
+/* line 45, stdin */
+inbox-sample-header .services {
+    margin-left: auto;
+}
+
+/* line 48, stdin */
+inbox-sample-header .services .services__service {
+    cursor: pointer;
+    display: inline-block;
+    opacity: .9;
+    padding: 16px 4px;
+    vertical-align: top;
+}
+
+/* line 55, stdin */
+inbox-sample-header .services .services__service:hover {
+    opacity: 1;
+}
+
+/* line 62, stdin */
+inbox-sample-header.action .title {
+    color: #212121;
+}
+
+/* line 66, stdin */
+inbox-sample-header.action .menu-toggler {
+    display: none;
+}
+
+/* line 70, stdin */
+inbox-sample-header.action .back {
+    display: inline-block;
+}
+/* line 1, stdin */
+inbox-sample-headeractions {
+    display: flex;
+    flex-grow: 1;
+    line-height: 56px;
+}
+
+/* line 6, stdin */
+inbox-sample-headeractions .counter {
+    color: #3c80f6;
+    font-size: 16px;
+    padding-left: 200px;
+}
+
+/* line 12, stdin */
+inbox-sample-headeractions .manage {
+    margin: 0 16px 0 auto;
+}
+
+/* line 16, stdin */
+inbox-sample-headeractions .manage__icon {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 0;
+    opacity: .6;
+    padding: 16px 0;
+    vertical-align: top;
+}
+
+/* line 24, stdin */
+inbox-sample-headeractions .manage__icon:hover {
+    opacity: 1;
+}
+
+/* line 33, stdin */
+inbox-sample-headeractions.hide {
+    display: none;
+}
+/* line 1, stdin */
+inbox-sample-navgroupitem {
+    border-radius: 2px;
+    display: block;
+}
+
+/* line 5, stdin */
+inbox-sample-navgroupitem:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+/* line 9, stdin */
+inbox-sample-navgroupitem .link {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    padding: 0 12px 0 16px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* line 20, stdin */
+inbox-sample-navgroupitem .icon {
+    padding: 8px 0;
+}
+
+/* line 24, stdin */
+inbox-sample-navgroupitem .text {
+    color: #616161;
+    display: inline-block;
+    font-size: 13px;
+    padding-left: 24px;
+    vertical-align: top;
+}
+
+/* line 33, stdin */
+inbox-sample-navgroupitem.active {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* line 36, stdin */
+inbox-sample-navgroupitem.active .text {
+    font-weight: bold;
+}
+/* line 1, stdin */
+inbox-sample-navgroup {
+    display: block;
+    padding: 12px 0;
+}
+
+/* line 5, stdin */
+inbox-sample-navgroup:not(.last) {
+    border-bottom: 1px solid #ddd;
+}
+/* line 1, stdin */
+inbox-sample-nav {
+    box-sizing: border-box;
+    padding: 0 8px;
+    width: 216px;
+    transition: transform .25s ease-in-out, opacity .15s ease-in-out;
+    will-change: transform, opacity;
+}
+
+/* line 8, stdin */
+inbox-sample-nav.hidden {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+/* line 1, stdin */
+inbox-sample-tasks {
+    box-sizing: border-box;
+    flex-grow: 1;
+    padding: 0 104px 0 52px;
+    width: calc(100% - 216px);
+}
+
+/* line 7, stdin */
+inbox-sample-tasks.wide {
+    padding: 0 104px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+/* line 1, stdin */
+inbox-sample-daytasks {
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* line 5, stdin */
+inbox-sample-daytasks .title {
+    color: #616161;
+    line-height: 24px;
+    margin: 20px 0 8px;
+    padding: 0 24px;
+}
+
+/* line 12, stdin */
+inbox-sample-daytasks.hidden {
+    display: none;
+}
+/* line 1, stdin */
+inbox-sample-taskslist {
+    display: block;
+}
+/* line 1, stdin */
+inbox-sample-task {
+    background: white;
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    display: block;
+    font-size: 13px;
+    line-height: 28px;
+    transition: margin .2s ease-in-out;
+    transform: translateZ(0);
+    will-change: margin;
+}
+
+/* line 11, stdin */
+inbox-sample-task .wrapper {
+    cursor: pointer;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 8px 0;
+    white-space: nowrap;
+}
+
+/* line 19, stdin */
+inbox-sample-task .avatar {
+    line-height: 0;
+    padding: 0 22px;
+}
+
+/* line 24, stdin */
+inbox-sample-task .avatar__img {
+    border-radius: 50%;
+}
+
+/* line 28, stdin */
+inbox-sample-task .avatar__check, inbox-sample-task .avatar__uncheck {
+    display: none;
+    padding: 2px;
+}
+
+/* line 33, stdin */
+inbox-sample-task .participants {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 184px;
+    white-space: nowrap;
+    width: 184px;
+}
+
+/* line 41, stdin */
+inbox-sample-task .text {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    overflow: hidden;
+    padding: 0 8px 0 16px;
+}
+
+/* line 49, stdin */
+inbox-sample-task .text__subject {
+    white-space: nowrap;
+}
+
+/* line 52, stdin */
+inbox-sample-task .text__subject::first-letter {
+    text-transform: uppercase;
+}
+
+/* line 57, stdin */
+inbox-sample-task .text__review {
+    color: #757575;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* line 58, stdin */
+inbox-sample-task .text__review::before {
+    content: '\2013';
+    display: inline-block;
+    padding: 0 8px;
+}
+
+/* line 70, stdin */
+inbox-sample-task .manage {
+    display: none;
+    margin: 0 16px 0 8px;
+}
+
+/* line 75, stdin */
+inbox-sample-task .manage__icon {
+    display: inline-block;
+    line-height: 0;
+    opacity: .6;
+    vertical-align: top;
+}
+
+/* line 81, stdin */
+inbox-sample-task .manage__icon:hover {
+    opacity: 1;
+}
+
+/* line 86, stdin */
+inbox-sample-task.hidden {
+    display: none;
+}
+
+/* line 90, stdin */
+inbox-sample-task.checked {
+    background: #edf4fd;
+}
+
+/* line 93, stdin */
+inbox-sample-task.checked .avatar__img,
+inbox-sample-task.checked .avatar__check {
+    display: none;
+}
+
+/* line 98, stdin */
+inbox-sample-task.checked .avatar__uncheck {
+    display: block;
+}
+
+/* line 103, stdin */
+inbox-sample-task.open {
+    margin: 20px -20px;
+}
+
+/* line 106, stdin */
+inbox-sample-task.open .wrapper {
+    display: none;
+}
+
+/* line 113, stdin */
+inbox-sample-task:not(.checked) .avatar:hover .avatar__img,
+inbox-sample-task:not(.checked) .avatar:hover .avatar__uncheck {
+    display: none;
+}
+
+/* line 118, stdin */
+inbox-sample-task:not(.checked) .avatar:hover .avatar__check {
+    display: block;
+}
+
+/* line 125, stdin */
+inbox-sample-task:hover .manage {
+    display: block;
+}
+/* line 1, stdin */
+inbox-sample-messages {
+    display: block;
+    transition: opacity .2s ease;
+}
+
+/* line 5, stdin */
+inbox-sample-messages .header {
+    box-sizing: border-box;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 60px;
+    padding: 0 20px;
+}
+
+/* line 15, stdin */
+inbox-sample-messages.prerender {
+    opacity: 0;
+}
+/* line 1, stdin */
+inbox-sample-messageslist {
+    display: block;
+}
+/* line 1, stdin */
+inbox-sample-message {
+    border-top: 1px solid #e5e5e5;
+    cursor: pointer;
+    display: flex;
+    padding: 20px;
+}
+
+/* line 7, stdin */
+inbox-sample-message .inbox-sample-message__avatar {
+    margin-right: 20px;
+}
+
+/* line 11, stdin */
+inbox-sample-message .inbox-sample-message__avatar-img {
+    border-radius: 50%;
+}
+
+/* line 15, stdin */
+inbox-sample-message .inbox-sample-message__content {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* line 23, stdin */
+inbox-sample-message .inbox-sample-message__participants {
+    flex-grow: 1;
+    line-height: 16px;
+}
+
+/* line 28, stdin */
+inbox-sample-message .inbox-sample-message__sender {
+    font-weight: bold;
+}
+
+/* line 32, stdin */
+inbox-sample-message .inbox-sample-message__date {
+    line-height: 16px;
+}
+
+/* line 36, stdin */
+inbox-sample-message .inbox-sample-message__text {
+    color: #757575;
+    margin-top: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* line 45, stdin */
+inbox-sample-message.open .inbox-sample-message__text {
+    color: #333;
+    white-space: normal;
+}
+
+/* line 51, stdin */
+inbox-sample-message.active {
+    border-left: 2px solid #046bc7;
+}
+/* line 1, stdin */
+html, body {
+    background: #f2f2f2;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #212121;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* line 10, stdin */
+inbox-sample-root {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=bundle.css.map*/

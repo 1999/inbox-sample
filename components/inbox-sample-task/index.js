@@ -107,7 +107,6 @@ class InboxSampleTask extends HTMLElement {
             }
 
             const messagesListElem = this.querySelector('inbox-sample-messages');
-            this.classList.toggle('open', open);
 
             if (open) {
                 if (!messagesListElem) {
@@ -116,13 +115,14 @@ class InboxSampleTask extends HTMLElement {
                     newMessagesListElem.message = messages[messages.length - 1].id;
 
                     this.appendChild(newMessagesListElem);
-                    newMessagesListElem.scrollIntoView();
                 }
             } else {
                 if (messagesListElem) {
                     messagesListElem.remove();
                 }
             }
+
+            this.classList.toggle('open', open);
         }
     }
 

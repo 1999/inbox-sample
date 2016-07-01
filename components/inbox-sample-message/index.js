@@ -61,7 +61,8 @@ class InboxSampleMessage extends HTMLElement {
         const task = state.tasks.find(task => task.id === this.task);
         const message = task.messages.find(message => message.id === this.message);
 
-        this.classList.toggle('open', message.open);
+        this.classList.toggle('open', message.expanded);
+        this.classList.toggle('active', message.active);
     }
 
     _onClick(evt) {

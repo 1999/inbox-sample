@@ -30,8 +30,8 @@ export default function (state = [], action) {
 
                 const messages = task.messages.map(message => {
                     return (message.id === action.payload.messageId)
-                        ? {...message, open: !message.expanded, active: message.expanded}
-                        : {...message, open: false, active: message.expanded};
+                        ? {...message, expanded: !message.expanded, active: message.expanded}
+                        : {...message, expanded: false, active: message.expanded};
                 });
 
                 return {...task, messages};

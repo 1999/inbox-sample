@@ -47,4 +47,8 @@ inbox-sample-message {
             white-space: normal;
         }
     }
+
+    &.active {
+        border-left: 2px solid #046bc7;
+    }
 }

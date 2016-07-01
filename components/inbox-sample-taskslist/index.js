@@ -20,7 +20,7 @@ class InboxSampleTasksList extends HTMLElement {
             );
         });
 
-        for (const task of tasks) {
+        for (let task of tasks) {
             const taskElem = document.createElement('inbox-sample-task');
             taskElem.id = task.id;
 

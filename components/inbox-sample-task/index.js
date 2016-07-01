@@ -90,7 +90,7 @@ class InboxSampleTask extends HTMLElement {
     _updateCheckedStatus() {
         const state = store.getState();
 
-        for (const {id, checked} of state.tasks) {
+        for (let {id, checked} of state.tasks) {
             if (this._task.id !== id) {
                 continue;
             }
@@ -102,7 +102,7 @@ class InboxSampleTask extends HTMLElement {
     _toggleRefMessagesList() {
         const state = store.getState();
 
-        for (const {id, open, messages} of state.tasks) {
+        for (let {id, open, messages} of state.tasks) {
             if (this._task.id !== id) {
                 continue;
             }

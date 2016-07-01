@@ -115,6 +115,7 @@ class InboxSampleTask extends HTMLElement {
                 newMessagesListElem.message = messages[messages.length - 1].id;
 
                 this.appendChild(newMessagesListElem);
+                newMessagesListElem.scrollIntoView();
             } else {
                 if (messagesListElem) {
                     messagesListElem.remove();

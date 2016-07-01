@@ -19,6 +19,9 @@ export default function (state = [], action) {
                     : {...task, open: false};
             });
 
+        case 'SELECT_NAV_TAG':
+            return state.map(task => ({...task, open: false}));
+
         default:
             return state;
     }

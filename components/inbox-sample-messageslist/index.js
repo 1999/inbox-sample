@@ -29,7 +29,6 @@ class InboxSampleMessagesList extends HTMLElement {
 
         // scroll to the last message
         if (openMessageElem) {
-            console.log(openMessageElem)
             window.scrollTo(0, openMessageElem.offsetTop - SCROLL_MARGIN_BEFORE_LAST_MESSAGE);
         }
     }

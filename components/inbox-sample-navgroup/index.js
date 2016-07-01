@@ -13,7 +13,7 @@ class InboxSampleNavGroup extends HTMLElement {
         const state = store.getState();
         const group = state.menu.groups.find(group => (group.id === this.id));
 
-        for (const item of group.items) {
+        for (let item of group.items) {
             const navItemElem = document.createElement('inbox-sample-navgroupitem');
             navItemElem.group = this.id;
             navItemElem.item = item.id;

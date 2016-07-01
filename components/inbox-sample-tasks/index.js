@@ -21,7 +21,7 @@ class InboxSampleTasks extends HTMLElement {
             return memo;
         }, new Set);
 
-        for (const dateStr of threadDays) {
+        for (let dateStr of threadDays) {
             const threadDayElem = document.createElement('inbox-sample-daytasks');
             const [year, month, day] = dateStr.split('.');
 

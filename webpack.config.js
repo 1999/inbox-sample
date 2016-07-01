@@ -37,6 +37,9 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
         new ExtractTextPlugin('bundle.css')
     ],
+    resolve: {
+        root: __dirname
+    },
     sassLoader: {
         sourceComments: true,
         indentWidth: 4,

@@ -1,8 +1,8 @@
 'use strict';
 
-import store from '../../store';
+import store from 'store';
 import style from './style.scss';
-import messagesListElem from '../inbox-sample-messageslist';
+import messagesListElem from 'components/inbox-sample-messageslist';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-messages';
 

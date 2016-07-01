@@ -1,9 +1,9 @@
 'use strict';
 
-import store from '../../store';
+import store from 'store';
 import style from './style.scss';
-import {selectNavTag} from '../../actions';
-import {generateSrcset} from '../../lib/utils';
+import {selectNavTag} from 'actions';
+import {generateSrcset} from 'lib/utils';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-navgroupitem';
 

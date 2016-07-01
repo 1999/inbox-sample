@@ -1,10 +1,10 @@
 'use strict';
 
-import store from '../../store';
+import store from 'store';
 import style from './style.scss';
-import {calcActiveNavGroupItem, generateSrcset} from '../../lib/utils';
-import {toggleOpenTask, toggleSelectTask} from '../../actions';
-import MessagesElem from '../../components/inbox-sample-messages';
+import {calcActiveNavGroupItem, generateSrcset} from 'lib/utils';
+import {toggleOpenTask, toggleSelectTask} from 'actions';
+import MessagesElem from 'components/inbox-sample-messages';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-task';
 

@@ -1,8 +1,8 @@
 'use strict';
 
-import store from '../../store';
+import store from 'store';
 import style from './style.scss';
-import messageElem from '../inbox-sample-message';
+import messageElem from 'components/inbox-sample-message';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-messageslist';
 const SCROLL_MARGIN_BEFORE_LAST_MESSAGE = 40;

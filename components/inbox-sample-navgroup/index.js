@@ -1,7 +1,7 @@
 'use strict';
 
-import store from '../../store';
-import NavGroupItem from '../inbox-sample-navgroupitem';
+import store from 'store';
+import NavGroupItem from 'components/inbox-sample-navgroupitem';
 import style from './style.scss';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-navgroup';

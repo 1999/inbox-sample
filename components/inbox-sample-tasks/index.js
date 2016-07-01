@@ -1,8 +1,8 @@
 'use strict';
 
-import store from '../../store';
+import store from 'store';
 import style from './style.scss';
-import DayTasksElement from '../inbox-sample-daytasks';
+import DayTasksElement from 'components/inbox-sample-daytasks';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-tasks';
 

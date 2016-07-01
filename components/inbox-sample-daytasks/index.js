@@ -1,9 +1,9 @@
 'use strict';
 
-import store from '../../store';
+import store from 'store';
 import style from './style.scss';
-import {calcActiveNavGroupItem} from '../../lib/utils';
-import TasksListElement from '../inbox-sample-taskslist';
+import {calcActiveNavGroupItem} from 'lib/utils';
+import TasksListElement from 'components/inbox-sample-taskslist';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-daytasks';
 

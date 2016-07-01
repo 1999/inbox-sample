@@ -1,8 +1,8 @@
 'use strict';
 
-import HeaderElement from '../inbox-sample-header';
-import NavElement from '../inbox-sample-nav';
-import TasksElement from '../inbox-sample-tasks';
+import HeaderElement from 'components/inbox-sample-header';
+import NavElement from 'components/inbox-sample-nav';
+import TasksElement from 'components/inbox-sample-tasks';
 import style from './style.scss';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-root';

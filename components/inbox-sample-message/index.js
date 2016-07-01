@@ -1,9 +1,9 @@
 'use strict';
 
-import store from '../../store';
+import store from 'store';
 import style from './style.scss';
-import {generateSrcset} from '../../lib/utils';
-import {toggleOpenMessage} from '../../actions';
+import {generateSrcset} from 'lib/utils';
+import {toggleOpenMessage} from 'actions';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-message';
 

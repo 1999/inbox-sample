@@ -1,8 +1,8 @@
 'use strict';
 
-import store from '../../store';
+import store from 'store';
 import style from './style.scss';
-import {calcActiveNavGroupItem, calcIsAction} from '../../lib/utils';
+import {calcActiveNavGroupItem, calcIsAction} from 'lib/utils';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-headeractions';
 

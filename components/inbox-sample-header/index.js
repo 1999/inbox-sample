@@ -1,10 +1,10 @@
 'use strict';
 
-import store from '../../store';
+import store from 'store';
 import style from './style.scss';
-import {toggleNavMenu, uncheckAllTasks} from '../../actions';
-import {calcActiveNavGroupItem, calcIsAction} from '../../lib/utils';
-import HeaderActionsElement from '../inbox-sample-headeractions';
+import {toggleNavMenu, uncheckAllTasks} from 'actions';
+import {calcActiveNavGroupItem, calcIsAction} from 'lib/utils';
+import HeaderActionsElement from 'components/inbox-sample-headeractions';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-header';
 

@@ -5,6 +5,7 @@ inbox-sample-header {
     height: 56px;
     transition: background .1s;
     width: 100%;
+    will-change: background;
 
     & .mainaction {
         cursor: pointer;

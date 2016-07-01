@@ -113,6 +113,7 @@ class InboxSampleTask extends HTMLElement {
                     const newMessagesListElem = document.createElement('inbox-sample-messages');
                     newMessagesListElem.task = id;
                     newMessagesListElem.message = messages[messages.length - 1].id;
+                    newMessagesListElem.classList.add('prerender')
 
                     this.appendChild(newMessagesListElem);
                 }

@@ -8,6 +8,10 @@ const CUSTOM_TAG_NAME = 'inbox-sample-messages';
 
 class InboxSampleMessages extends HTMLElement {
 
+    createdCallback() {
+        this._onTaskAnimated = this._onTaskAnimated.bind(this);
+    }
+
     attachedCallback() {
         const state = store.getState();
         const template = document.querySelector(`#${CUSTOM_TAG_NAME}`);
@@ -22,6 +26,14 @@ class InboxSampleMessages extends HTMLElement {
         messagesList.message = this.message;
 
         this.appendChild(cloneFragment);
+
+        this._taskElem = document.querySelector(`inbox-sample-task[id=${this.task}]`);
+        this._taskElem.addEventListener('transitionend', this._onTaskAnimated, false);
+    }
+
+    _onTaskAnimated() {
+        this.classList.remove('prerender');
+        this._taskElem.removeEventListener('transitionend', this._onTaskAnimated);
     }
 
 }

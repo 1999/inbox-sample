@@ -1,5 +1,6 @@
 inbox-sample-messages {
     display: block;
+    transition: opacity .2s ease;
 
     & .header {
         box-sizing: border-box;
@@ -9,5 +10,9 @@ inbox-sample-messages {
         font-weight: 300;
         line-height: 60px;
         padding: 0 20px;
+    }
+
+    &.prerender {
+        opacity: 0;
     }
 }

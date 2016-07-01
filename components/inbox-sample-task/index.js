@@ -110,12 +110,14 @@ class InboxSampleTask extends HTMLElement {
             this.classList.toggle('open', open);
 
             if (open) {
-                const newMessagesListElem = document.createElement('inbox-sample-messages');
-                newMessagesListElem.task = id;
-                newMessagesListElem.message = messages[messages.length - 1].id;
+                if (!messagesListElem) {
+                    const newMessagesListElem = document.createElement('inbox-sample-messages');
+                    newMessagesListElem.task = id;
+                    newMessagesListElem.message = messages[messages.length - 1].id;
 
-                this.appendChild(newMessagesListElem);
-                newMessagesListElem.scrollIntoView();
+                    this.appendChild(newMessagesListElem);
+                    newMessagesListElem.scrollIntoView();
+                }
             } else {
                 if (messagesListElem) {
                     messagesListElem.remove();

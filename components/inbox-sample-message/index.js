@@ -3,6 +3,7 @@
 import store from '../../store';
 import style from './style.scss';
 import {generateSrcset} from '../../lib/utils';
+import {toggleOpenMessage} from '../../actions';
 
 const CUSTOM_TAG_NAME = 'inbox-sample-message';
 
@@ -10,6 +11,7 @@ class InboxSampleMessage extends HTMLElement {
 
     createdCallback() {
         this._onStoreChange = this._onStoreChange.bind(this);
+        this._onClick = this._onClick.bind(this);
     }
 
     attachedCallback() {
@@ -45,14 +47,26 @@ class InboxSampleMessage extends HTMLElement {
 
         this.appendChild(cloneFragment);
         this.classList.toggle('open', this.open);
+
+        this.addEventListener('click', this._onClick, false);
     }
 
     detachedCallback() {
         this._unStoreChange();
+        this.removeEventListener('click', this._onClick);
     }
 
     _onStoreChange() {
-        //
+        const state = store.getState();
+        const task = state.tasks.find(task => task.id === this.task);
+        const message = task.messages.find(message => message.id === this.message);
+
+        this.classList.toggle('open', message.open);
+    }
+
+    _onClick(evt) {
+        store.dispatch(toggleOpenMessage(this.task, this.message));
+        evt.stopPropagation();
     }
 
 }

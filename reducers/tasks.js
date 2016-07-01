@@ -22,6 +22,21 @@ export default function (state = [], action) {
         case 'SELECT_NAV_TAG':
             return state.map(task => ({...task, open: false}));
 
+        case 'TOGGLE_OPEN_MESSAGE':
+            return state.map(task => {
+                if (task.id !== action.payload.taskId) {
+                    return task;
+                }
+
+                const messages = task.messages.map(message => {
+                    return (message.id === action.payload.messageId)
+                        ? {...message, open: !message.expanded, active: message.expanded}
+                        : {...message, open: false, active: message.expanded};
+                });
+
+                return {...task, messages};
+            });
+
         default:
             return state;
     }

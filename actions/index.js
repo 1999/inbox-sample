@@ -32,3 +32,10 @@ export function toggleOpenTask(id) {
         payload: {id}
     };
 }
+
+export function toggleOpenMessage(taskId, messageId) {
+    return {
+        type: 'TOGGLE_OPEN_MESSAGE',
+        payload: {taskId, messageId}
+    };
+}

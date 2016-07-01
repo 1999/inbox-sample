@@ -8,13 +8,7 @@ const CUSTOM_TAG_NAME = 'inbox-sample-taskslist';
 
 class InboxSampleTasksList extends HTMLElement {
 
-    createdCallback() {
-        this._onStoreChange = this._onStoreChange.bind(this);
-    }
-
     attachedCallback() {
-        this._unStoreChange = store.subscribe(this._onStoreChange);
-
         const state = store.getState();
         const tasks = state.tasks.filter(task => {
             const date = new Date(task.lastDate);
@@ -32,14 +26,6 @@ class InboxSampleTasksList extends HTMLElement {
 
             this.appendChild(taskElem);
         }
-    }
-
-    detachedCallback() {
-        this._unStoreChange();
-    }
-
-    _onStoreChange() {
-        // this._updateVisibility();
     }
 
 }

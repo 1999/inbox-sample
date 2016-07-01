@@ -8,13 +8,7 @@ const CUSTOM_TAG_NAME = 'inbox-sample-messages';
 
 class InboxSampleMessages extends HTMLElement {
 
-    createdCallback() {
-        this._onStoreChange = this._onStoreChange.bind(this);
-    }
-
     attachedCallback() {
-        this._unStoreChange = store.subscribe(this._onStoreChange);
-
         const state = store.getState();
         const template = document.querySelector(`#${CUSTOM_TAG_NAME}`);
         const cloneFragment = document.importNode(template.content, true);
@@ -28,14 +22,6 @@ class InboxSampleMessages extends HTMLElement {
         messagesList.message = this.message;
 
         this.appendChild(cloneFragment);
-    }
-
-    detachedCallback() {
-        this._unStoreChange();
-    }
-
-    _onStoreChange() {
-        //
     }
 
 }

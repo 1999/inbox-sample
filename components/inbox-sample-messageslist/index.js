@@ -9,13 +9,7 @@ const SCROLL_MARGIN_BEFORE_LAST_MESSAGE = 40;
 
 class InboxSampleMessagesList extends HTMLElement {
 
-    createdCallback() {
-        this._onStoreChange = this._onStoreChange.bind(this);
-    }
-
     attachedCallback() {
-        this._unStoreChange = store.subscribe(this._onStoreChange);
-
         const state = store.getState();
         const task = state.tasks.find(task => task.id === this.task);
         let lastMessageElem;
@@ -32,14 +26,6 @@ class InboxSampleMessagesList extends HTMLElement {
 
         // scroll to the last message
         window.scrollTo(0, lastMessageElem.offsetTop - SCROLL_MARGIN_BEFORE_LAST_MESSAGE);
-    }
-
-    detachedCallback() {
-        this._unStoreChange();
-    }
-
-    _onStoreChange() {
-        //
     }
 
 }

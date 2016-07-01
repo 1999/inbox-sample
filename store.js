@@ -9,7 +9,7 @@ import app from './reducers';
 let initialState;
 try {
     const json = sessionStorage.getItem('state');
-    initialState = JSON.parse(json);
+    initialState = JSON.parse(json) || initialConfig;
 } catch (ex) {
     initialState = initialConfig;
 }

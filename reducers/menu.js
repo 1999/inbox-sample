@@ -1,5 +1,7 @@
 'use strict';
 
+import {menu} from 'config';
+
 export default function (state = [], action) {
     switch (action.type) {
         case 'SELECT_NAV_TAG':

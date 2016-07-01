@@ -1750,8 +1750,8 @@
 	function calcActiveNavGroupItem(state) {
 	    let output;
 	
-	    stuff: for (const group of state.menu.groups) {
-	        for (const item of group.items) {
+	    stuff: for (let group of state.menu.groups) {
+	        for (let item of group.items) {
 	            if (item.active) {
 	                output = item;
 	                break stuff;
@@ -1937,7 +1937,7 @@
 	        const state = _store2.default.getState();
 	        const group = state.menu.groups.find(group => group.id === this.id);
 	
-	        for (const item of group.items) {
+	        for (let item of group.items) {
 	            const navItemElem = document.createElement('inbox-sample-navgroupitem');
 	            navItemElem.group = this.id;
 	            navItemElem.item = item.id;
@@ -2091,7 +2091,7 @@
 	            return memo;
 	        }, new Set());
 	
-	        for (const dateStr of threadDays) {
+	        for (let dateStr of threadDays) {
 	            const threadDayElem = document.createElement('inbox-sample-daytasks');
 	            const [year, month, day] = dateStr.split('.');
 	
@@ -2267,7 +2267,7 @@
 	            return date.getDate() === Number(this.day) && date.getMonth() === Number(this.month) && date.getFullYear() === Number(this.year);
 	        });
 	
-	        for (const task of tasks) {
+	        for (let task of tasks) {
 	            const taskElem = document.createElement('inbox-sample-task');
 	            taskElem.id = task.id;
 	
@@ -2393,7 +2393,7 @@
 	    _updateCheckedStatus() {
 	        const state = _store2.default.getState();
 	
-	        for (const { id, checked } of state.tasks) {
+	        for (let { id, checked } of state.tasks) {
 	            if (this._task.id !== id) {
 	                continue;
 	            }
@@ -2405,7 +2405,7 @@
 	    _toggleRefMessagesList() {
 	        const state = _store2.default.getState();
 	
-	        for (const { id, open, messages } of state.tasks) {
+	        for (let { id, open, messages } of state.tasks) {
 	            if (this._task.id !== id) {
 	                continue;
 	            }
@@ -2560,7 +2560,6 @@
 	
 	        // scroll to the last message
 	        if (openMessageElem) {
-	            console.log(openMessageElem);
 	            window.scrollTo(0, openMessageElem.offsetTop - SCROLL_MARGIN_BEFORE_LAST_MESSAGE);
 	        }
 	    }

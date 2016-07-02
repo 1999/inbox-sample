@@ -10,9 +10,6 @@ npm install
 open http://localhost:8080/webpack-dev-server/
 ```
 
-## UI Example
-`TODO`
-
 ## UI elements:
 
 * header with:

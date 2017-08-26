@@ -1,5 +1,7 @@
 # Sample HTML like inbox.google.com
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/1999/inbox-sample.svg)](https://greenkeeper.io/)
+
 ## Development
 ```bash
 git clone git://github.com/1999/inbox-sample.git
